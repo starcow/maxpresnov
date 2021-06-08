@@ -29,7 +29,7 @@ const Title = styled.h1`
   color: ${Colors.yellow};
   display: block;
   font-family: Roboto;
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 10px;
@@ -51,7 +51,7 @@ const Logo = styled.h1`
   display: inline-flex;
   position: absolute;
   font-family: Roboto;
-  font-size: 35px;
+  font-size: 50px;
   top: 3rem;
   left: 3rem;
   text-transform: uppercase;
