@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Slider from 'react-slick'
 import data from '../../Images/SliderData'
 
+const imageOverlay = require('../../Images/background_overlay.png')
 
 const Colors = {
   yellow: '#F8C521',
@@ -23,6 +24,16 @@ const Slide = styled.div`
   align-items: flex-end;
   justify-content: flex-end;
   position: relative;
+`
+
+const Overlay = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(${imageOverlay.default});
+  z-index: 2;
 `
 
 const Title = styled.h1`
@@ -81,6 +92,7 @@ function SliderComponent () {
           {data.map((e, key) => <Slide key={`ts:${key}`} image={e.image.default}>
             {/* <img src={e.image.default} /> */}
             {/* <h1>{e.title} </h1> */}
+            {/* <Overlay /> */}
             <DescriptionContainer>
               <Title>{e.title}</Title>
               <Description>{e.description}</Description>
