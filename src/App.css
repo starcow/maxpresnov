@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,100;1,300;1,400;1,700&display=swap');
+
 .App {
   text-align: center;
 }
@@ -5,6 +7,32 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+body .slick-list {
+  width: 100vw;
+}
+
+body .slick-dots {
+  bottom: 30px;
+}
+
+body .slick-dots li button {
+  width: 40px;
+  height: 40px;
+}
+
+body .slick-dots li button:before {
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  transition: 0.6s ease-in-out all;
+}
+
+body .slick-dots li.slick-active button:before {
+  color: #fff;
+  transition: 0.6s ease-in-out all;
 }
 
 @media (prefers-reduced-motion: no-preference) {
