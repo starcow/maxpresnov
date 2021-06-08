@@ -24,6 +24,9 @@ const Slide = styled.div`
   align-items: flex-end;
   justify-content: flex-end;
   position: relative;
+  @media (max-width: 600px) {
+    animation: slide 7s linear infinite;
+  }
 `
 
 const Overlay = styled.div`
@@ -52,7 +55,11 @@ const DescriptionContainer = styled.div`
   background-color: ${Colors.black};
   padding: 1.5rem 2rem;
   position: absolute;
+  @media (max-width: 600px) {
+    bottom: 7rem;
+  }
 `
+
 
 const Logo = styled.h1`
   background-color: ${Colors.yellow};
