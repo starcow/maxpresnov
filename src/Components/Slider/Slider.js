@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import styled from 'styled-components'
 import Slider from 'react-slick'
+import { Link } from 'react-router-dom'
 import data from '../../Images/SliderData'
 
 const imageOverlay = require('../../Images/background_overlay.png')
@@ -36,7 +37,7 @@ const Overlay = styled.div`
   top: 0;
   bottom: 0;
   background-image: url(${imageOverlay.default});
-  z-index: 2;
+  z-index: 500;
 `
 
 const Title = styled.h1`
@@ -49,31 +50,62 @@ const Title = styled.h1`
   margin-bottom: 10px;
 `
 
+const MenuItem = styled(Link)`
+  background-color: #000;
+  padding: 1rem;
+  display: block;
+  text-decoration: none;
+  font-family: Roboto;
+  font-size: 25px;
+  color: white;
+  margin: 0rem;
+  transition: all 0.4s linear;
+  &:hover {
+    background-color: rgba(0,0,0,0.5);
+  }
+  cursor: pointer;
+`
+
+const MenuContainer = styled.div`
+  position: absolute;
+  top: 3.0rem;
+  left: 3rem;
+  z-index: 1111
+  ;
+` 
+
 const DescriptionContainer = styled.div`
   bottom: 3rem;
   left: 3rem;
   background-color: ${Colors.black};
   padding: 1.5rem 2rem;
   position: absolute;
+  z-index: 1250;
   @media (max-width: 600px) {
     bottom: 7rem;
+    z-index: 50;
   }
 `
 
-
-const Logo = styled.h1`
+// LOGO
+const Logo = styled(Link)`
   background-color: ${Colors.yellow};
   color: #fff;
-  padding: 1rem 2rem;
-  font-weight: 300;
+  padding: 2rem 2rem;
+  display: block;
+  text-decoration: none;
+  font-weight: 350;
   display: inline-flex;
-  position: absolute;
   font-family: Roboto;
   font-size: 50px;
-  top: 3rem;
-  left: 3rem;
+  margin-bottom:0;
+  /* top: 2rem;
+  left: 3rem; */
   text-transform: uppercase;
-  z-index: 999;
+  z-index: 1500;
+  @media (max-width: 320px) {
+    animation: slide 7s linear infinite;
+  }
 `
 
 const Description = styled.span`
@@ -81,6 +113,7 @@ const Description = styled.span`
   font-weight: 400;
   font-size: 18px;
   display: block;
+  z-index: 1000;
   color: ${Colors.yellow};
 `
 
@@ -93,17 +126,21 @@ function SliderComponent () {
       slidesToScroll: 1
     }
     return (
-      <Container>
-        <Logo>Max<br /> Presnov</Logo>
-        <Slider {...settings} style={{ width: '100vw' }}>
+<Container>
+   
+        <MenuContainer>
+        <Logo to="/">Max<br /> Presnov</Logo>
+          <MenuItem to='/portfolio'>ПОРТФОЛИО</MenuItem>
+          <MenuItem>ОБО МНЕ</MenuItem>
+          <MenuItem>КОНТАКТЫ</MenuItem>
+        </MenuContainer>
+        <Slider {...settings} style={{ width: '100vw'}}>
           {data.map((e, key) => <Slide key={`ts:${key}`} image={e.image.default}>
-            {/* <img src={e.image.default} /> */}
-            {/* <h1>{e.title} </h1> */}
-            {/* <Overlay /> */}
             <DescriptionContainer>
               <Title>{e.title}</Title>
               <Description>{e.description}</Description>
             </DescriptionContainer>
+            <Overlay id="overlay"/>  
           </Slide>)}
         </Slider>
       </Container>
